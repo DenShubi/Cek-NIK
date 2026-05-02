@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NIK Decoder - Cek Lokasi &amp; Info KTP dari NIK</title>
+    <meta
+      name="description"
+      content="NIK Decoder untuk cek NIK KTP, arti kode NIK, NIK dari mana, dan lokasi KTP dari NIK secara offline di browser."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>Cek Info KTP &amp; Lokasi dari NIK</h1>
+        <p>
+          Masukkan 16 digit NIK untuk melihat kode wilayah, tanggal lahir, jenis
+          kelamin, dan nomor urut pendaftaran.
+        </p>
+      </header>
+
+      <section class="panel">
+        <form id="nikForm" novalidate>
+          <label for="nikInput">Masukkan 16 digit NIK</label>
+          <div class="input-row">
+            <input
+              id="nikInput"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]{16}"
+              maxlength="16"
+              autocomplete="off"
+              placeholder="Contoh: 3173xxxxxxxxxxxx"
+              aria-describedby="status"
+            />
+            <button id="decodeBtn" type="submit" disabled>Decode NIK</button>
+          </div>
+          <div class="helper-row">
+            <span id="charCount">0/16</span>
+            <span id="status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Hasil Dekode</h2>
+          <button id="copyBtn" class="copy-btn" type="button" disabled>
+            Salin Ringkasan
+          </button>
+        </div>
+        <table aria-live="polite">
+          <tbody>
+            <tr>
+              <th>Kode Wilayah</th>
+              <td id="outKodeWilayah">-</td>
+            </tr>
+            <tr>
+              <th>Provinsi</th>
+              <td id="outProvinsi">-</td>
+            </tr>
+            <tr>
+              <th>Kabupaten/Kota</th>
+              <td id="outKab">-</td>
+            </tr>
+            <tr>
+              <th>Kecamatan</th>
+              <td id="outKec">-</td>
+            </tr>
+            <tr>
+              <th>Tanggal Lahir</th>
+              <td id="outLahir">-</td>
+            </tr>
+            <tr>
+              <th>Jenis Kelamin</th>
+              <td id="outGender">-</td>
+            </tr>
+            <tr>
+              <th>Nomor Urut Pendaftaran</th>
+              <td id="outUrut">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <p class="footer-note">
+        Tool ini hanya membaca struktur NIK secara lokal di browser kamu. Tidak
+        ada data yang dikirim ke server manapun.
+      </p>
+
+      <noscript>
+        <p class="status-error">
+          Aplikasi ini membutuhkan JavaScript agar bisa berjalan.
+        </p>
+      </noscript>
+    </main>
+    <script src="wilayah-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
