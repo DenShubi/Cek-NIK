@@ -164,6 +164,10 @@
     }
 
     var found = wilayahMaps.kecCount > 0 ? Boolean(kecObj) : Boolean(kabObj || provName);
+    if (wilayahMaps.kecCount > 0 && !kecObj) {
+      provName = null;
+      kabName = null;
+    }
 
     return {
       provinsi: provName || "Tidak ditemukan",
