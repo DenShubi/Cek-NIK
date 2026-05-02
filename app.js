@@ -308,7 +308,6 @@
     } else if (!result.wilayahDitemukan) {
       setStatus("Kode wilayah tidak ditemukan.", "warn");
     } else {
-      setStatus("Dekode berhasil.", "ok");
     }
   }
 
